@@ -1,0 +1,39 @@
+spring:
+  application:
+    name: Desafio-Itau-Statistics
+    version: 1.0.0
+  threads:
+    virtual:
+      enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info
+  endpoint:
+    health:
+      show-details: always
+
+logging:
+  level:
+    org.yvesguilherme.statistics: debug
+#    root: debug
+
+server:
+  servlet:
+    context-path: /v1
+  error:
+    include-stacktrace: on_param
+  jetty:
+    threads:
+      max: 20
+
+statistics:
+  timeframe:
+    seconds: 60
+
+springdoc:
+  swagger-ui:
+    path: /swagger.html
+    operations-sorter: alpha # alpha, method
